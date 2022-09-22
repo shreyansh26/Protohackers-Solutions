@@ -1,5 +1,4 @@
 import socket
-import sys
 import argparse
 
 host = '0.0.0.0'
