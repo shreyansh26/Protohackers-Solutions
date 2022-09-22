@@ -4,9 +4,7 @@ import sys
 class ChatServer:
     def __init__(self, server_name, port, loop):
         self.server_name = server_name
-        self.connected_connections = {}
         self.joined_connections = {}
-        print("start")
         self.server = loop.run_until_complete(
                 asyncio.start_server(
                     self.accept_connection, "0.0.0.0", port, loop=loop))
@@ -33,7 +31,7 @@ class ChatServer:
             if (not data) or (not data.isalnum()):
                 return None
             username = data.strip()
-            print(username)
+            # print(username)
             if username and username not in self.joined_connections:
                 self.joined_connections[username] = (reader, writer)
                 return username
@@ -52,9 +50,8 @@ class ChatServer:
 
     @asyncio.coroutine
     def accept_connection(self, reader, writer):
-        print("hello")
         username = (yield from self.prompt_username(reader, writer))
-        # print(username)
+
         if username is not None:
             temp_list = list(self.joined_connections.keys())
             temp_list.remove(username)
