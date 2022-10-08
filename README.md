@@ -1,3 +1,3 @@
 # Protohackers Solutions
 
-Solutions to the Protohacker challenges - https://protohackers.com/
+Solutions to the Protohackers computer networking challenges - https://protohackers.com/
